@@ -1,22 +1,75 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  /*background: yellow;*/
-  background-image:url('https://www.chromethemer.com/download/hd-wallpapers/blue-technology-3840x2160.jpg');
+  background: black;
+  /*background-image:url('https://www.pxwall.com/wp-content/uploads/2018/06/Wallpaper%20Cyber%20Network,%20Internet,%206K,%20Art%208179615602-680x500.jpg');*/
   background-size: auto 100vh;
   font-family: Arial;
   height: 100vh;
+  font-size: 12px;
+}
+
+/* Se a tela tiver pelo menos 400 px...*/
+@media (min-width: 400px) {
+  body {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 600px) {
+  body {
+    font-size: 18px;
+  }
+}
+
+header {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .menu {
   background-color: white;
+  position: fixed;
+  width: 100vw;
+  top: 0;
+  z-index: 1;
 }
 
 a {
-  color: teal;
+  color: black;
   text-decoration: none;
 }
 
 a:hover {
   text-decoration: underline;
+}
+
+.titulo {
+  animation: animacaotitulo 500ms steps(400) infinite normal, typing 2s steps(400) 1s normal;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 18em;
+  }
+}
+
+@keyframes animacaotitulo {
+  from {
+    border-right-color: green;
+  }
+  to {
+    border-right-color: white;
+  }
 }
 
 .menu ul {
@@ -28,13 +81,130 @@ a:hover {
   list-style:none;
 }
 
+.menu a {
+  display: block;
+  padding: 10px 20px;
+  transition: background-color 0.5s, color 0.3s;
+}
+
+.menu a:active {
+  background-color: black;
+  color: green;
+}
+
+.menu a:hover {
+  background-color: black;
+  color: white;
+
+}
+
 .site-title {
-  color: whitesmoke;
+  color: #7CFC00;
   text-align: center;
+  font-size: 4em;
+  font-family: 'Cutive Mono', monospace;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .site-subtitle {
-  color: white;
+  color: #32CD32;
   text-align: center;
-  font-style: italic;
+  font-family: 'Press Start 2P', cursive;
+  line-height: 2.8em;
+}
+
+.site-sub-subtitle {
+  color: #228B22;
+  text-align: center;
+  font-family: 'Ubuntu', sans-serif;
+  line-height: 1.2em;
+}
+
+.contato,
+.portfolio {
+  background-image:url('https://www.xmple.com/wallpaper/gradient-blue-white-linear-5120x2880-c2-87ceeb-fffafa-a-255-f-14.svg');
+  background-size: auto;
+  color: black;
+  font-size: 1.5em;
+  font-family: 'Courier Prime', monospace;
+  padding: 2em;
+  min-height: 100vh;
+}
+
+.contato h2,
+.portfolio h2 {
+  color: black;
+  font-size: 2em;
+  font-family: 'Cutive Mono', monospace;
+  margin-bottom: 1.5em;
+}
+
+.portfolio .grid {
+  /*align-items: center;*/
+  display: grid;
+  gap: 2em;
+}
+
+@media (min-width: 599px) {
+  .portfolio .grid {
+    grid-template-columns: 240px 240px;
+    /*align-items: center;*/
+    justify-content: center;
+  }
+}
+
+@media (min-width: 935px) {
+  .portfolio .grid {
+    grid-template-columns: repeat(3, 250px);
+    align-content: center;
+    /*justify-content: center;*/
+    height: calc(100vh - 4em - 48px - 1.5em);
+  }
+}
+
+.portfolio figure {
+  text-align: center;
+}
+
+.img-portfolio {
+  /*
+  max-width: 200px;
+  max-height: 200px;
+  */
+  width: auto;
+  height: 5em;
+  object-fit: cover;
+  border-radius: 15px;
+  transition: transform 500ms;
+}
+
+.img-portfolio:hover {
+  transform: scale(1.2) rotate(10deg);
+}
+
+/*
+@media (min-width: 1200px) {
+  .img-portfolio {
+    width: auto;
+    height: 10em;
+  }
+}
+*/
+
+.contato .icons {
+  text-align:center;
+}
+
+.contato a {
+  color: black;
+  font-size: 5em;
+  transition: text-shadow 0.3s;
+}
+
+.contato a:hover {
+  text-decoration: none;
+  text-shadow: 0px 0px 7px rgba(31, 44, 202,1);
 }
